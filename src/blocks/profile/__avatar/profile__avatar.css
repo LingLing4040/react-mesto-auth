@@ -1,0 +1,78 @@
+.profile__avatar {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: 50%;
+    cursor: pointer;
+}
+
+.profile__avatar:before {
+    background-image: url(../../../images/update-avatar.svg);
+    z-index: 1;
+    top: 47px;
+    left: 47px;
+    width: 26px;
+    height: 26px;
+}
+
+.profile__avatar:after,
+.profile__avatar:before {
+    visibility: hidden;
+    content: '';
+    position: absolute;
+}
+
+.profile__avatar:after {
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.profile__avatar:hover:after,
+.profile__avatar:hover:before {
+    visibility: visible;
+}
+
+/* .avatar {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+} */
+/* .avatar:before {
+    background-image: url(./images/edit_avatar.svg);
+    top: calc(50% - 13px);
+    left: calc(50% - 13px);
+    z-index: 1;
+    width: 26px;
+    height: 26px;
+}
+.avatar:after,
+.avatar:before {
+    visibility: hidden;
+    content: '';
+    position: absolute;
+} */
+/* .avatar:after {
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+} */
+/* .avatar:hover:after,
+.avatar:hover:before {
+    visibility: visible;
+} */

@@ -1,0 +1,31 @@
+.content {
+    font-family: 'Inter', Arial, sans-serif;
+    color: white;
+    max-width: 880px;
+    margin: 0 auto;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    background-color: #000;
+}
+
+@media screen and (max-width: 1279px) {
+    .content {
+        max-width: 69%;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .content {
+        max-width: 85%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .content {
+        max-width: 100%;
+    }
+}
