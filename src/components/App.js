@@ -13,7 +13,7 @@ import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
 import Register from './Register';
 import Login from './Login';
 import ProtectedRoute from './ProtectedRoute';
-import * as Auth from './Auth.js';
+import * as Auth from '../utils/Auth.js';
 import InfoTooltip from './InfoTooltip';
 
 function App() {
@@ -187,13 +187,15 @@ function App() {
         if (localStorage.getItem('token')) {
             const token = localStorage.getItem('token');
             if (token) {
-                Auth.getContent(token).then((res) => {
-                    if (res) {
-                        setIsLoggedIn(true);
-                        setEmail(res.data.email);
-                        history.push('/');
-                    }
-                });
+                Auth.getContent(token)
+                    .then((res) => {
+                        if (res) {
+                            setIsLoggedIn(true);
+                            setEmail(res.data.email);
+                            history.push('/');
+                        }
+                    })
+                    .catch((err) => console.log(err));
             }
         }
     }
@@ -273,27 +275,21 @@ function App() {
                         <Route path='/sign-up'>
                             <Header linkText='Войти' linkPath='/sign-in' />
                             <Register handleInfoOpen={handleInfoOpen} />
-                            <InfoTooltip
-                                onClose={closeAllPopups}
-                                isOpened={isInfoPopupOpen}
-                                handlePopupClick={handlePopupClick}
-                                isSuccess={isSuccess}
-                            />
                         </Route>
                         <Route path='/sign-in'>
                             <Header linkText='Зарегистрироваться' linkPath='/sign-up' />
                             <Login handleLogin={tokenCheck} />
-                            <InfoTooltip
-                                onClose={closeAllPopups}
-                                isOpened={isInfoPopupOpen}
-                                handlePopupClick={handlePopupClick}
-                                isSuccess={isSuccess}
-                            />
                         </Route>
                         <Route path='*'>
                             <Redirect to='/sign-in' />
                         </Route>
                     </Switch>
+                    <InfoTooltip
+                        onClose={closeAllPopups}
+                        isOpened={isInfoPopupOpen}
+                        handlePopupClick={handlePopupClick}
+                        isSuccess={isSuccess}
+                    />
                 </div>
             </div>
         </CurrentUserContext.Provider>
