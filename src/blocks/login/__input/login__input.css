@@ -1,0 +1,23 @@
+.login__input {
+    padding: 0 0 8px;
+    border: 0;
+    border-bottom: 1px solid rgba(204, 204, 204, 1);
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.21;
+    font-weight: normal;
+    background-color: transparent;
+    color: white;
+}
+
+.login__input:focus {
+    outline-color: rgb(0, 132, 255);
+}
+
+.login__input:first-of-type {
+    margin: 0 auto 0;
+}
+
+.login__input:last-of-type {
+    margin: 30px auto 0;
+}
